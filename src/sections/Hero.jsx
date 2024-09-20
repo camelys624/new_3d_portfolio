@@ -1,10 +1,14 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
+import HeroCamera from "../components/HeroCamera";
 import HackerRoom from "../components/HackerRoom";
 import Loader from "../components/Loader";
 import Target from "../components/Target";
 import ReactLogo from "../components/ReactLogo";
+import Cube from "../components/Cube";
+import Ring from "../components/Ring";
+import Button from "../components/Button";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
 
@@ -28,20 +32,33 @@ const Hero = () => {
         <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-            <HackerRoom
-              scale={sizes.deskScale}
-              position={sizes.deskPosition}
-              rotation={[0, -Math.PI, 0]}
-            />
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom
+                scale={sizes.deskScale}
+                position={sizes.deskPosition}
+                rotation={[0, -Math.PI, 0]}
+              />
+            </HeroCamera>
 
             <group>
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Ring position={sizes.ringPosition} />
             </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
         </Canvas>
+      </div>
+      <div className="absolute bottom-7 left-0 w-full z-10 c-space flex justify-center">
+        <a href="#contact" className="w-fit block">
+          <Button
+            name="Let's work together"
+            isBeam
+            containerClass="sm:w-wit w-full sm:min-w-96"
+          />
+        </a>
       </div>
     </section>
   );
