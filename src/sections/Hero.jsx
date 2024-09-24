@@ -52,7 +52,7 @@ const Hero = () => {
         </Canvas>
       </div>
       <div className="absolute bottom-7 left-0 w-full z-10 c-space flex justify-center">
-        <a href="#contact" className="w-fit block">
+        <a href="#about" className="w-fit block">
           <Button
             name="Let's work together"
             isBeam
