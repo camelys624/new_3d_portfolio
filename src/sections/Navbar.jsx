@@ -4,9 +4,9 @@ import { navLinks } from "../constants";
 const NavItems = () => {
   return (
     <ul className="nav-ul">
-      {navLinks.map(({ id, herf, name }) => (
+      {navLinks.map(({ id, href, name }) => (
         <li key={id} className="nav-li">
-          <a href={herf} className="nav-li_a" onClick={() => {}}>
+          <a href={href} className="nav-li_a" onClick={() => {}}>
             {name}
           </a>
         </li>
