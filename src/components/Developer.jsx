@@ -8,21 +8,21 @@ const Developer = ({ animationName = "idle", ...props }) => {
   const group = useRef()
   const { nodes, materials } = useGLTF("/models/human/human-model.glb")
 
-  const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx")
+  const { animations: idleAnimation } = useFBX("/models/human/idle.fbx")
   idleAnimation[0].name = "idle"
 
   const { animations: clappingAnimation } = useFBX(
-    "/models/animations/clapping.fbx"
+    "/models/human/clapping.fbx"
   )
   clappingAnimation[0].name = "clapping"
 
   const { animations: saluteAnimation } = useFBX(
-    "/models/animations/salute.fbx"
+    "/models/human/salute.fbx"
   )
   saluteAnimation[0].name = "salute"
 
   const { animations: victoryAnimation } = useFBX(
-    "/models/animations/victory.fbx"
+    "/models/human/victory.fbx"
   )
   victoryAnimation[0].name = "victory"
 
@@ -37,7 +37,7 @@ const Developer = ({ animationName = "idle", ...props }) => {
   )
 
   useEffect(() => {
-    actions[animationName].reset().fadeIn(0.5).play()
+    actions[animationName].reset().play()
 
     return () => {
       actions[animationName].fadeOut(0.5)
@@ -46,64 +46,184 @@ const Developer = ({ animationName = "idle", ...props }) => {
 
   return (
     <group {...props} dispose={null} ref={group}>
-      <primitive object={nodes.Hips} />
-      <skinnedMesh
-        name="EyeLeft"
-        geometry={nodes.EyeLeft.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeLeft.skeleton}
-        morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="EyeRight"
-        geometry={nodes.EyeRight.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeRight.skeleton}
-        morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="Wolf3D_Head"
-        geometry={nodes.Wolf3D_Head.geometry}
-        material={materials.Wolf3D_Skin}
-        skeleton={nodes.Wolf3D_Head.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="Wolf3D_Teeth"
-        geometry={nodes.Wolf3D_Teeth.geometry}
-        material={materials.Wolf3D_Teeth}
-        skeleton={nodes.Wolf3D_Teeth.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Glasses.geometry}
-        material={materials.Wolf3D_Glasses}
-        skeleton={nodes.Wolf3D_Glasses.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
-        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials.Wolf3D_Outfit_Footwear}
-        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Body.geometry}
-        material={materials.Wolf3D_Body}
-        skeleton={nodes.Wolf3D_Body.skeleton}
-      />
+      <group scale={0.015}>
+        <skinnedMesh
+          geometry={nodes.node_00b5f9ea_3547_48a2_baba_4a67ff81d418_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_00b5f9ea_3547_48a2_baba_4a67ff81d418_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_0caa4193_1a68_4e91_a6db_bcfafdfcc8cc_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_0caa4193_1a68_4e91_a6db_bcfafdfcc8cc_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_1357cbc9_225e_4f24_b889_5e836e7c336b_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_1357cbc9_225e_4f24_b889_5e836e7c336b_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_22a2040e_dd9e_4a84_9dcf_c50a142f264e_mesh0.geometry}
+          material={materials.mat_0}
+          skeleton={nodes.node_22a2040e_dd9e_4a84_9dcf_c50a142f264e_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_24a26598_b31b_4dca_b955_e57ae4bc144c_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_24a26598_b31b_4dca_b955_e57ae4bc144c_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_252069b6_305a_48d5_8a45_748701b2c496_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_252069b6_305a_48d5_8a45_748701b2c496_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_2d56adef_637c_4992_b0fc_061e8415521e_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_2d56adef_637c_4992_b0fc_061e8415521e_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_33632344_bae5_407b_b1a5_8ea91403ef78_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_33632344_bae5_407b_b1a5_8ea91403ef78_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_3919fd6a_060e_43e6_a034_8ca4e2adc086_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_3919fd6a_060e_43e6_a034_8ca4e2adc086_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_3aa905ba_9b94_4d0e_9b76_44038c28d15b_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_3aa905ba_9b94_4d0e_9b76_44038c28d15b_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_3b55577f_15c5_478d_ac45_affbf69b6945_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_3b55577f_15c5_478d_ac45_affbf69b6945_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_3cea882c_048c_4673_aed6_ed6e078b35a4_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_3cea882c_048c_4673_aed6_ed6e078b35a4_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_40d8db8f_3703_4012_b41e_2863251edca9_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_40d8db8f_3703_4012_b41e_2863251edca9_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_46319ce0_9eee_4e10_8e13_a07fb5202949_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_46319ce0_9eee_4e10_8e13_a07fb5202949_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_4ad2c517_72ec_47d0_a35c_7e8ebfa3ffff_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_4ad2c517_72ec_47d0_a35c_7e8ebfa3ffff_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_633d0d68_860f_465e_8346_532d262effbe_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_633d0d68_860f_465e_8346_532d262effbe_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_64d138a4_2682_4ec1_96fc_455276327fab_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_64d138a4_2682_4ec1_96fc_455276327fab_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_6cac237b_48eb_42c5_a58e_6cd61c40c3ed_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_6cac237b_48eb_42c5_a58e_6cd61c40c3ed_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_7d807b63_3ce9_4ec3_ac29_8a5823cf6e7f_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_7d807b63_3ce9_4ec3_ac29_8a5823cf6e7f_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_86392bd8_19c7_4529_a4b2_189c37968bde_mesh0.geometry}
+          material={materials.mat_3}
+          skeleton={nodes.node_86392bd8_19c7_4529_a4b2_189c37968bde_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_904f9e62_6def_474d_a025_f592ebd01d1f_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_904f9e62_6def_474d_a025_f592ebd01d1f_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_92d7e162_9ae5_4b9b_a6ff_5a4ef98cdcfe_mesh0.geometry}
+          material={materials.mat_2}
+          skeleton={nodes.node_92d7e162_9ae5_4b9b_a6ff_5a4ef98cdcfe_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_94c401bf_4407_4937_aa66_91472c0069b1_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_94c401bf_4407_4937_aa66_91472c0069b1_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_b4161b9e_e49e_452b_ba6e_fc00dd460f53_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_b4161b9e_e49e_452b_ba6e_fc00dd460f53_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_b5c274fe_5d1e_4b0e_b806_a53e913a4cde_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_b5c274fe_5d1e_4b0e_b806_a53e913a4cde_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_c602582f_5b1d_43c9_971c_b06d691c4798_mesh0.geometry}
+          material={materials.mat_0}
+          skeleton={nodes.node_c602582f_5b1d_43c9_971c_b06d691c4798_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_cddd4c1c_a60f_4397_a463_c6ba77bacaed_mesh0.geometry}
+          material={materials.mat_4}
+          skeleton={nodes.node_cddd4c1c_a60f_4397_a463_c6ba77bacaed_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_d0424773_d9f3_4bb3_aa2b_5816e026a470_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_d0424773_d9f3_4bb3_aa2b_5816e026a470_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_d5634457_86d8_46ca_9a11_716642d86c46_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_d5634457_86d8_46ca_9a11_716642d86c46_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_d8ea102c_d0a9_4ac1_8918_8eee32510519_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_d8ea102c_d0a9_4ac1_8918_8eee32510519_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_dae7d003_322f_4ddc_b4a2_fcfb1a10c787_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_dae7d003_322f_4ddc_b4a2_fcfb1a10c787_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_e81efb5c_261c_4de6_82e4_622cfcef61dd_mesh0.geometry}
+          material={materials.mat_0}
+          skeleton={nodes.node_e81efb5c_261c_4de6_82e4_622cfcef61dd_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_f3b3e947_8434_46a3_b11b_faeffcf94f8e_mesh0.geometry}
+          material={materials.mat_5}
+          skeleton={nodes.node_f3b3e947_8434_46a3_b11b_faeffcf94f8e_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_f3f41022_8615_423d_9a49_6c73b7219e42_mesh0.geometry}
+          material={materials.mat_4}
+          skeleton={nodes.node_f3f41022_8615_423d_9a49_6c73b7219e42_mesh0.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.node_f5c2b37b_d9f8_4b5e_85da_d3e4468e6f91_mesh0.geometry}
+          material={materials.mat_1}
+          skeleton={nodes.node_f5c2b37b_d9f8_4b5e_85da_d3e4468e6f91_mesh0.skeleton}
+        />
+        <primitive object={nodes.mixamorigHips} />
+      </group>
     </group>
   )
 }

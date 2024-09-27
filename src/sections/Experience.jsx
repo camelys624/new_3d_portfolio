@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber"
 import { workExperiences } from "../constants"
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Suspense, useState } from "react"
 
 import Loader from "../components/Loader"
@@ -17,14 +17,15 @@ const Experience = () => {
         <div className="work-container">
           <div className="work-canvas">
             <Canvas>
-              <ambientLight intensity={7} />
+              <ambientLight intensity={1} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+              <directionalLight position={[10, 10, 10]} intensity={1.5} />
+              <PerspectiveCamera makeDefault position={[0, 0, 10]} />
+              <OrbitControls enableZoom={false} />
 
               <Suspense fallback={<Loader />}>
                 <Developer
-                  position-y={-3}
+                  position-y={-4}
                   scale={3}
                   animationName={animation}
                 />
